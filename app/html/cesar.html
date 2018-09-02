@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="nAst" onkeyup="piramideAst()">
+  Altura de tu piramide
+  <p id="piramideAst"></p>
+  <input type="text" id="nFib" onkeyup="fibonacci()">
+  Fibonacci
+  <p id="fibonacci"></p>
+
+  <script type="text/javascript">
+    const piramideAst = () => {
+      document.getElementById('piramideAst').innerHTML = "";
+      const n = document.getElementById('nAst').value;
+      const pir = document.getElementById('piramideAst').value;
+      for(let i = 0; i < n; i++){
+        for(let j = 0; j <= i; j++)
+        {
+          document.getElementById('piramideAst').innerHTML += "*"
+        }
+        document.getElementById('piramideAst').innerHTML += "<br>"
+      }
+    }
+
+    const fibonacci = () => {
+      document.getElementById('fibonacci').innerHTML = "";
+      let n = document.getElementById('nFib').value;
+      let prev1 = 0;
+      let prev2 = 1;
+      let res = 0;
+
+      if (n === 0){
+        document.getElementById('fibonacci').innerHTML += prev1.toString() + "<br>";
+      }
+      else if (n === 1) {
+        document.getElementById('fibonacci').innerHTML += prev1.toString() + "<br>";
+        document.getElementById('fibonacci').innerHTML += prev2.toString() + "<br>";
+      }
+      else {
+        document.getElementById('fibonacci').innerHTML += prev1.toString() + "<br>";
+        document.getElementById('fibonacci').innerHTML += prev2.toString() + "<br>";
+        for(let i = 1; i < n; i++) {
+          res = prev1 + prev2;
+          prev1 = prev2;
+          prev2 = res;
+          document.getElementById('fibonacci').innerHTML += res.toString() + "<br>";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
